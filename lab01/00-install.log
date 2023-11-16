@@ -1,0 +1,245 @@
+maxhha@maxhha-Latitude-5420:~/Загрузки$ cd ~
+maxhha@maxhha-Latitude-5420:~$ curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+[sudo] пароль для maxhha:
+maxhha@maxhha-Latitude-5420:~$ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse
+maxhha@maxhha-Latitude-5420:~$ sudo apt-get update
+Пол:1 file:/opt/mariadb-10.4.25-ubuntu-focal-amd64-debs ./ InRelease [1 698 B]
+Пол:1 file:/opt/mariadb-10.4.25-ubuntu-focal-amd64-debs ./ InRelease [1 698 B]
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Сущ:4 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Сущ:5 https://dl.google.com/linux/chrome/deb stable InRelease
+Сущ:6 http://nginx.org/packages/mainline/ubuntu jammy InRelease
+Сущ:7 https://download.docker.com/linux/ubuntu jammy InRelease
+Сущ:8 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Игн:9 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 InRelease
+Ошб:10 https://ppa.launchpadcontent.net/builds/sphinxsearch-rel23/ubuntu jammy InRelease
+  403  Forbidden [IP: 2620:2d:4000:1::81 443]
+Игн:11 http://security.ubuntu.com/ubuntu impish-security InRelease
+Сущ:12 https://ppa.launchpadcontent.net/touchegg/stable/ubuntu jammy InRelease
+Ошб:13 http://security.ubuntu.com/ubuntu impish-security Release
+  404  Not Found [IP: 2620:2d:4002:1::103 80]
+Пол:14 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 Release [2 090 B]
+Сущ:15 https://www.synaptics.com/sites/default/files/Ubuntu stable InRelease
+Пол:16 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 Release.gpg [866 B]
+Пол:17 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse arm64 Packages [16,1 kB]
+Пол:18 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 Packages [17,1 kB]
+Чтение списков пакетов… Готово
+W: file:/opt/mariadb-10.4.25-ubuntu-focal-amd64-debs/./InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+E: Не удалось получить https://ppa.launchpadcontent.net/builds/sphinxsearch-rel23/ubuntu/dists/jammy/InRelease  403  Forbidden [IP: 2620:2d:4000:1::81 443]
+E: Репозиторий «https://ppa.launchpadcontent.net/builds/sphinxsearch-rel23/ubuntu jammy InRelease» не подписан.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+E: Репозиторий «http://security.ubuntu.com/ubuntu impish-security Release» больше не содержит файла Release.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+N: Пропускается получение настроенного файла «nginx/binary-i386/Packages», так как репозиторий «http://nginx.org/packages/mainline/ubuntu jammy InRelease» не поддерживает архитектуру «i386»
+maxhha@maxhha-Latitude-5420:~$ sudo apt-get install -y mongodb-org
+
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  docker-scan-plugin libevent-core-2.1-7 libevent-pthreads-2.1-7 libflashrom1 libftdi1-2 libllvm13 libmecab2 libprotobuf-lite23 mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils
+Для их удаления используйте «sudo apt autoremove».
+Будут установлены следующие дополнительные пакеты:
+  mongodb-database-tools mongodb-mongosh mongodb-org-database mongodb-org-database-tools-extra mongodb-org-mongos mongodb-org-server mongodb-org-shell
+  mongodb-org-tools
+Следующие НОВЫЕ пакеты будут установлены:
+  mongodb-database-tools mongodb-mongosh mongodb-org mongodb-org-database mongodb-org-database-tools-extra mongodb-org-mongos mongodb-org-server
+  mongodb-org-shell mongodb-org-tools
+Обновлено 0 пакетов, установлено 9 новых пакетов, для удаления отмечено 0 пакетов, и 43 пакетов не обновлено.
+Необходимо скачать 162 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 530 MB.
+Пол:1 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-database-tools amd64 100.9.1 [52,0 MB]
+Пол:2 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-mongosh amd64 2.0.2 [47,9 MB]
+Пол:3 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-org-shell amd64 7.0.3 [2 984 B]
+Пол:4 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-org-server amd64 7.0.3 [36,4 MB]
+Пол:5 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-org-mongos amd64 7.0.3 [25,4 MB]
+Пол:6 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-org-database-tools-extra amd64 7.0.3 [7 760 B]
+Пол:7 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-org-database amd64 7.0.3 [3 424 B]
+Пол:8 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-org-tools amd64 7.0.3 [2 768 B]
+Пол:9 https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0/multiverse amd64 mongodb-org amd64 7.0.3 [2 802 B]
+Получено 162 MB за 15с (10,6 MB/s)
+Выбор ранее не выбранного пакета mongodb-database-tools.
+(Чтение базы данных … на данный момент установлено 291657 файлов и каталогов.)
+Подготовка к распаковке …/0-mongodb-database-tools_100.9.1_amd64.deb …
+Распаковывается mongodb-database-tools (100.9.1) …
+Выбор ранее не выбранного пакета mongodb-mongosh.
+Подготовка к распаковке …/1-mongodb-mongosh_2.0.2_amd64.deb …
+Распаковывается mongodb-mongosh (2.0.2) …
+Выбор ранее не выбранного пакета mongodb-org-shell.
+Подготовка к распаковке …/2-mongodb-org-shell_7.0.3_amd64.deb …
+Распаковывается mongodb-org-shell (7.0.3) …
+Выбор ранее не выбранного пакета mongodb-org-server.
+Подготовка к распаковке …/3-mongodb-org-server_7.0.3_amd64.deb …
+Распаковывается mongodb-org-server (7.0.3) …
+Выбор ранее не выбранного пакета mongodb-org-mongos.
+Подготовка к распаковке …/4-mongodb-org-mongos_7.0.3_amd64.deb …
+Распаковывается mongodb-org-mongos (7.0.3) …
+Выбор ранее не выбранного пакета mongodb-org-database-tools-extra.
+Подготовка к распаковке …/5-mongodb-org-database-tools-extra_7.0.3_amd64.deb …
+Распаковывается mongodb-org-database-tools-extra (7.0.3) …
+Выбор ранее не выбранного пакета mongodb-org-database.
+Подготовка к распаковке …/6-mongodb-org-database_7.0.3_amd64.deb …
+Распаковывается mongodb-org-database (7.0.3) …
+Выбор ранее не выбранного пакета mongodb-org-tools.
+Подготовка к распаковке …/7-mongodb-org-tools_7.0.3_amd64.deb …
+Распаковывается mongodb-org-tools (7.0.3) …
+Выбор ранее не выбранного пакета mongodb-org.
+Подготовка к распаковке …/8-mongodb-org_7.0.3_amd64.deb …
+Распаковывается mongodb-org (7.0.3) …
+Настраивается пакет mongodb-mongosh (2.0.2) …
+Настраивается пакет mongodb-org-server (7.0.3) …
+Добавляется системный пользователь «mongodb» (UID 133) ...
+Добавляется новый пользователь «mongodb» (UID 133) в группу «nogroup» ...
+Не создаётся домашний каталог «/home/mongodb».
+Добавляется группа «mongodb» (GID 142) ...
+Готово.
+Добавляется пользователь «mongodb» в группу «mongodb» ...
+Добавление пользователя mongodb в группу mongodb
+Готово.
+Настраивается пакет mongodb-org-shell (7.0.3) …
+Настраивается пакет mongodb-database-tools (100.9.1) …
+Настраивается пакет mongodb-org-mongos (7.0.3) …
+Настраивается пакет mongodb-org-database-tools-extra (7.0.3) …
+Настраивается пакет mongodb-org-database (7.0.3) …
+Настраивается пакет mongodb-org-tools (7.0.3) …
+Настраивается пакет mongodb-org (7.0.3) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+maxhha@maxhha-Latitude-5420:~$
+
+# Запуск
+
+maxhha@maxhha-Latitude-5420:~$ sudo systemctl status mongod
+○ mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: https://docs.mongodb.org/manual
+
+maxhha@maxhha-Latitude-5420:~$ sudo systemctl start mongod
+maxhha@maxhha-Latitude-5420:~$ sudo systemctl status mongod
+● mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset: enabled)
+     Active: active (running) since Mon 2023-11-13 19:53:01 MSK; 8s ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 173462 (mongod)
+     Memory: 73.6M
+        CPU: 502ms
+     CGroup: /system.slice/mongod.service
+             └─173462 /usr/bin/mongod --config /etc/mongod.conf
+
+ноя 13 19:53:01 maxhha-Latitude-5420 systemd[1]: Started MongoDB Database Server.
+ноя 13 19:53:01 maxhha-Latitude-5420 mongod[173462]: {"t":{"$date":"2023-11-13T16:53:01.645Z"},"s":"I",  "c":"CONTROL",  "id":7484500, "ctx":"main","msg":"En>
+
+# Создание БД, коллекции и документа
+maxhha@maxhha-Latitude-5420:~$ mongosh
+Current Mongosh Log ID:	6552557e3416f5bb4497864f
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.2
+Using MongoDB:		7.0.3
+Using Mongosh:		2.0.2
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2023-11-13T19:53:01.719+03:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2023-11-13T19:53:02.086+03:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2023-11-13T19:53:02.086+03:00: vm.max_map_count is too low
+------
+
+test> use IU6
+switched to db IU6
+IU6> db.createCollection("IU6-14M")
+{ ok: 1 }
+IU6> db["IU6-14M"].insert({ fullname: "Дегтярев Александр Игоревич" })
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("655256183416f5bb44978650") }
+}
+IU6>
+IU6> db['IU6-14M'].find()
+[
+  {
+    _id: ObjectId("655256183416f5bb44978650"),
+    fullname: 'Дегтярев Александр Игоревич'
+  }
+]
+
+
+maxhha@maxhha-Latitude-5420:~/Загрузки$ sudo apt install ./mongodb-compass_1.40.4_amd64.deb
+[sudo] пароль для maxhha:
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Заметьте, вместо «./mongodb-compass_1.40.4_amd64.deb» выбирается «mongodb-compass»
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  docker-scan-plugin libevent-core-2.1-7 libevent-pthreads-2.1-7 libflashrom1
+  libftdi1-2 libllvm13 libmecab2 libprotobuf-lite23 mecab-ipadic
+  mecab-ipadic-utf8 mecab-utils
+Для их удаления используйте «sudo apt autoremove».
+Предлагаемые пакеты:
+  gir1.2-gnomekeyring-1.0 libgnome-keyring0
+Следующие НОВЫЕ пакеты будут установлены:
+  mongodb-compass
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 43 пакетов не обновлено.
+Необходимо скачать 0 B/103 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 410 MB.
+Пол:1 /home/maxhha/Загрузки/mongodb-compass_1.40.4_amd64.deb mongodb-compass amd64 1.40.4 [103 MB]
+Выбор ранее не выбранного пакета mongodb-compass.
+(Чтение базы данных … на данный момент установлено 291714 файлов и каталогов.)
+Подготовка к распаковке …/mongodb-compass_1.40.4_amd64.deb …
+Распаковывается mongodb-compass (1.40.4) …
+Настраивается пакет mongodb-compass (1.40.4) …
+Обрабатываются триггеры для desktop-file-utils (0.26-1ubuntu3) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu3) …
+Обрабатываются триггеры для mailcap (3.70+nmu1ubuntu1) …
+N: Загрузка выполняется от лица суперпользователя без ограничений песочницы, так как файл «/home/maxhha/Загрузки/mongodb-compass_1.40.4_amd64.deb» недоступен для пользователя «_apt». - pkgAcquire::Run (13: Отказано в доступе)
+maxhha@maxhha-Latitude-5420:~/Загрузки$ mongodb-compass
+
+
+IU6> use schedule
+switched to db schedule
+schedule> db.createCollection("lessons")
+{ ok: 1 }
+schedule> db.lessons.insertOne({ name: "Распределенные базы данных" })
+{
+  acknowledged: true,
+  insertedId: ObjectId("6553b60373390c6c270155bc")
+}
+schedule> db.lessons.insertOne({ name: "Иностранный язык" })
+{
+  acknowledged: true,
+  insertedId: ObjectId("6553b64473390c6c270155bd")
+}
+schedule> db.lessons.insertOne({ name: "Алгоритмы и структуры данных" })
+{
+  acknowledged: true,
+  insertedId: ObjectId("6553b65b73390c6c270155be")
+}
+schedule> db.lessons.find()
+[
+  {
+    _id: ObjectId("6553b60373390c6c270155bc"),
+    name: 'Распределенные базы данных'
+  },
+  {
+    _id: ObjectId("6553b64473390c6c270155bd"),
+    name: 'Иностранный язык'
+  },
+  {
+    _id: ObjectId("6553b65b73390c6c270155be"),
+    name: 'Алгоритмы и структуры данных'
+  }
+]
+schedule>
+
