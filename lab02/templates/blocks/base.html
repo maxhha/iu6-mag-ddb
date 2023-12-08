@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Сериалы{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    {% endblock %}
+</head>
+
+<body>
+<header style="padding: 0">
+    <a href="/" style="all: unset; cursor: pointer;"><h2>Сериалы и MongoDB 🚀</h2></a>
+</header>
+{% block body %}{% endblock %}
+</body>
+
+</html>
