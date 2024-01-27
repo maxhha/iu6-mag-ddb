@@ -1,0 +1,30 @@
+{% extends "blocks/base.html" %}
+
+{% block title %}Кооперативы{% endblock %}
+
+{% block body %}
+<main>
+    <h4>Регистрация кооператива</h4>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {% for field in form %}{% if field.name != "csrf_token" and field.name != "memberships" %}
+        <p>
+            {{ field.label }}
+            {{ field }}
+            {% if field.errors %}
+            <ul class="padding-inline: 0; list-style: none; color: #ff206b;">
+                {% for error in field.errors %}
+                <li class="form-errors__item">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </p>
+        {% endif %}{% endfor %}
+        <p>
+            {{ form.memberships.label }}
+            {{ form.memberships }}
+        </p>
+        <button>Сохранить</button>
+    </form>
+</main>
+{% endblock %}

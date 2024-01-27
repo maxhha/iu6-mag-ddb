@@ -1,0 +1,28 @@
+<div style="grid-column: 1 / 4">
+{% if cooperatives %}
+<table style="margin-left: auto; margin-right: auto;">
+    <thead>
+        <tr>
+            <th> Название </th>
+            <th> Район размещения </th>
+            <th> Число работников<br>(человек)</th>
+            <th> Уставной капитал<br>(тыс. руб.)</th>
+            <th> Профиль </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cooperative in cooperatives %}
+        <tr>
+            <td><a href="/cooperatives/{{ cooperative._id|string }}/memberships">{{ cooperative.name }}</a></td>
+            <td>{{ cooperative.residence }}</td>
+            <td>{{ cooperative.workers_number }}</td>
+            <td>{{ cooperative.capital_amount }}</td>
+            <td>{{ cooperative.profile }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div style="text-align: center; font-size: 2rem; padding: 30px;">Нет зарегистрированных кооперативов</div>
+{% endif %}
+</div>

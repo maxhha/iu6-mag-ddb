@@ -1,0 +1,28 @@
+<div style="grid-column: 1 / 4">
+    {% if memberships %}
+    <table style="margin-left: auto; margin-right: auto;">
+        <thead>
+            <tr>
+                <th> Номер<br/>регистрации </th>
+                <th> ФИО владельца </th>
+                <th> Размер пая </th>
+                <th> Дата </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in memberships %}
+            <tr>
+                <td>{{ member.number }}</td>
+                <td>{{ member.owner.name }}</td>
+                <td>{{ member.amount }}</td>
+                <td>{{ member.date }}</td>
+                <td>{% if member.can_transfer %}<a href="/memberships/{{member._id|string}}/transfer" class="button" >Передать</a>{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div style="text-align: center; font-size: 2rem; padding: 30px;">Нет владельцев</div>
+    {% endif %}
+    </div>

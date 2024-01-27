@@ -1,0 +1,24 @@
+{% extends "blocks/base.html" %}
+
+{% block body %}
+<main>
+    <h4>Добавить владельца</h4>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {% for field in form %}{% if field.name != "csrf_token" %}
+        <p>
+            {{ field.label }}
+            {{ field }}
+            {% if field.errors %}
+            <ul class="padding-inline: 0; list-style: none; color: #ff206b;">
+                {% for error in field.errors %}
+                <li class="form-errors__item">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </p>
+        {% endif %}{% endfor %}
+        <button>Сохранить</button>
+    </form>
+</main>
+{% endblock %}

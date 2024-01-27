@@ -1,0 +1,32 @@
+<div style="grid-column: 1 / 4">
+{% if owners %}
+<table style="margin-left: auto; margin-right: auto;">
+    <thead>
+        <tr>
+            {% if can_select %}
+            <th></th>
+            {% endif %}
+            <th> ФИО </th>
+            <th> Район проживания </th>
+            <th> Адрес </th>
+            <th> Паспортные данные </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for owner in owners %}
+        <tr>
+            {% if can_select %}
+            <td><button onclick="window.dispatchEvent(new CustomEvent('select_owner', {detail:{id:'{{ owner._id|string }}',name:'{{ owner.name|forceescape }}'}}))">Выбрать</button></td>
+            {% endif %}
+            <td>{{ owner.name }}</td>
+            <td>{{ owner.residence }}</td>
+            <td>{{ owner.address }}</td>
+            <td>{{ owner.passport }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div style="text-align: center; font-size: 2rem; padding: 30px;">Нет владельцев</div>
+{% endif %}
+</div>

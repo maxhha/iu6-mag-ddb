@@ -4,16 +4,25 @@
 <head>
     {% block head %}
     <meta charset="UTF-8">
-    <title>{% block title %}Сериалы{% endblock %}</title>
+    <title>{% block title %}Кооперативы{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     {% endblock %}
 </head>
 
 <body>
-<header style="padding: 0">
-    <a href="/" style="all: unset; cursor: pointer;"><h2>Сериалы и MongoDB 🚀</h2></a>
-</header>
-{% block body %}{% endblock %}
+{% if request.args.popup %}
+    {% block popup_body %}{% endblock %}
+{% else %}
+    <header style="padding: 0">
+        <nav>
+            <a href="/" {% if request.path == "/" %}class="current"{% endif %}>Кооперативы</a>
+            <a href="/owners" {% if request.path == "/owners" %}class="current"{% endif %}>Владельцы</a>
+        </nav>
+        <h1>Кооперативы и MongoDB 🚀</h1>
+    </header>
+    {% block body %}{% endblock %}
+{% endif %}
+
 </body>
 
 </html>

@@ -1,16 +1,16 @@
 {% extends "blocks/base.html" %}
 
-{% block title %}Сериалы{% endblock %}
+{% block title %}Кооперативы{% endblock %}
 
 {% block body %}
 <main>
-    <form action="/serials/search" type="GET" style="display: flex; gap: 8px;">
-        <a class="button" href="/serials/create">Добавить сериал</a>
+    <form action="/cooperatives/search" type="GET" style="display: flex; gap: 8px;">
+        <a class="button" href="/cooperatives/register">Зарегистрировать</a>
         <input style="margin-left: 24px; flex-grow: 1" type="text" name="q" value="{{ search }}" />
         <button>Найти</button>
     </form>
 </main>
-{% include "blocks/serials_table.html" %}
+{% include "blocks/cooperatives_table.html"%}
 
 {% endblock %}
 
